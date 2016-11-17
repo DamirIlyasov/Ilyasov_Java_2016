@@ -9,10 +9,10 @@ public class ErrorLogger extends Logger {
 
     @Override
     public void log(String message) {
-        Pattern pattern = Pattern.compile("\\[ERROR\\] : \\[.+\\]");
+        Pattern pattern = Pattern.compile("\\[ERROR\\] : (?<message>\\[.+\\])$");
         Matcher matcher = pattern.matcher(message);
         if (matcher.matches()){
-            writeMessage(message);
+            writeMessage(matcher.group("message"));
         }
         if (next != null){
             next.log(message);
