@@ -2,7 +2,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 abstract public class Logger {
-    protected String level;
     protected Logger next;
     protected String regularExpression;
 
