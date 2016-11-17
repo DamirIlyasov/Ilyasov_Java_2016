@@ -1,19 +1,7 @@
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class InfoLogger extends Logger {
     public InfoLogger(){
         this.level = "INFO";
+        this.regularExpression = "\\[(INFO|ERROR)\\] : (?<message>\\[.+\\])$";
     }
-    @Override
-    public void log(String message) {
-        Pattern pattern = Pattern.compile("\\[(INFO|ERROR)\\] : (?<message>\\[.+\\])$");
-        Matcher matcher = pattern.matcher(message);
-        if (matcher.matches()){
-            writeMessage(matcher.group("message"));
-        }
-        if (next != null){
-            next.log(message);
-        }
-    }
+
 }
