@@ -3,9 +3,9 @@ import java.io.*;
 /**
  * Created by aleksandrpliskin on 09.11.16.
  */
-public class UpperCaseInputStream extends FilterReader {
+public class UpperCaseReader extends FilterReader {
 
-  public UpperCaseInputStream(Reader reader) {
+  public UpperCaseReader(Reader reader) {
     super(reader);
   }
 

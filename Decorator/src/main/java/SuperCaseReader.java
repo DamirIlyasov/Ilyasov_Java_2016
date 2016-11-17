@@ -3,11 +3,11 @@ import java.io.*;
 /**
  * Created by damir on 15.11.16.
  */
-public class SuperCaseInputStream extends FilterReader {
+public class SuperCaseReader extends FilterReader {
 
     int i = 0;
 
-    public SuperCaseInputStream(Reader reader) {
+    public SuperCaseReader(Reader reader) {
         super(reader);
     }
 

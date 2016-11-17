@@ -4,9 +4,9 @@ import java.util.Random;
 /**
  * Created by damir on 15.11.16.
  */
-public class RandomCaseInputStream extends FilterReader{
+public class RandomCaseReader extends FilterReader{
 
-    protected RandomCaseInputStream(Reader reader) {
+    protected RandomCaseReader(Reader reader) {
         super(reader);
     }
     Random a = new Random();
