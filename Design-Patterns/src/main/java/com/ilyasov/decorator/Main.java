@@ -1,4 +1,9 @@
-import java.io.*;
+package com.ilyasov.decorator;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 /**
  * Created by damir on 15.11.16.

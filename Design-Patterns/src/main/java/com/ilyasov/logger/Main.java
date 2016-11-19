@@ -1,3 +1,5 @@
+package com.ilyasov.logger;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,10 +29,5 @@ public class Main {
 
         messages.forEach(logger::log);
 
-        //Output shoul looks this way:
-        //[some info here]
-        //[warning]
-        //[exception in some modules]
-        //[exception in some modules]
     }
 }
