@@ -20,7 +20,6 @@ public class Main {
         String errorMessage = "[ERROR] : [exception in some modules]";
         String invalidMessage = "[LOL] : [lol lol]";
 
-
         List<String> messages = new ArrayList<>();
         messages.add(infoMessage);
         messages.add(warnMessage);

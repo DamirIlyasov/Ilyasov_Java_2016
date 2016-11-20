@@ -8,7 +8,6 @@ import java.io.Reader;
  * Created by damir on 15.11.16.
  */
 public class SuperCaseReader extends FilterReader {
-
     int i = 0;
 
     public SuperCaseReader(Reader reader) {
