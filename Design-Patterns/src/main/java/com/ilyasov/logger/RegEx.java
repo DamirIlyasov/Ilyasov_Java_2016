@@ -1,7 +1,6 @@
 package com.ilyasov.logger;
 
 public enum RegEx {
-
     WARN("\\[WARN\\].*"),
     ERROR("\\[ERROR\\].*"),
     INFO("\\[(INFO|ERROR)\\].*");
