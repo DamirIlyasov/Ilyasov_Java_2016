@@ -1,14 +1,13 @@
-package com.ilyasov.reports;
+package com.ilyasov.DAO;
 
-import com.ilyasov.DAO;
-import com.ilyasov.reports.classes.News;
+import com.ilyasov.model.News;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OneUserNews extends DAO {
+public class OneUserNews extends Dao {
     List<News> newsList = new ArrayList<News>();
 
     public List<News> getOneUsersNews() throws SQLException {

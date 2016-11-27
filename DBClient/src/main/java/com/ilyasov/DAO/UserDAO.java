@@ -1,11 +1,13 @@
-package com.ilyasov.database;
+package com.ilyasov.DAO;
 
-import com.ilyasov.DAO;
+import com.ilyasov.ENUMS.UserRole;
+import com.ilyasov.ENUMS.UserStatus;
 
 import java.sql.*;
 import java.util.Scanner;
 
-public class UserDAO extends DAO {
+public class UserDAO extends Dao {
+    private final String ADD_USER_REQUEST = "INSERT INTO users (name, surname, email, password, role, status) VALUES (?,?,?,?,?,?)";
 
     public void addUser() throws SQLException {
         Scanner scanner = new Scanner(System.in);
@@ -21,34 +23,21 @@ public class UserDAO extends DAO {
         String role = scanner.nextLine();
 
         if (role.equals("1")) {
-            role = "ROLE_ADMIN";
+            role = UserRole.ADMIN;
         } else {
             if (role.equals("2")) {
-                role = "ROLE_USER";
+                role = UserRole.USER;
             } else {
                 throw new SQLException();
             }
         }
-
-        String status = "ACTIVE";
-        Statement statement = connection.createStatement();
-        preparedStatement = connection.prepareStatement("INSERT " +
-                "INTO users (id, name, surname, email, password, role, status) VALUES " +
-                "(?,?,?,?,?,?,?)");
-        ResultSet resultSet = statement.executeQuery("SELECT max(id) FROM users");
-        long id = 0;
-
-        while (resultSet.next()) {
-            id = resultSet.getLong(1) + 1;
-        }
-
-        preparedStatement.setLong(1, id);
-        preparedStatement.setString(2, name);
-        preparedStatement.setString(3, surname);
-        preparedStatement.setString(4, email);
-        preparedStatement.setString(5, password);
-        preparedStatement.setString(6, role);
-        preparedStatement.setString(7, status);
+        preparedStatement = connection.prepareStatement(ADD_USER_REQUEST);
+        preparedStatement.setString(1, name);
+        preparedStatement.setString(2, surname);
+        preparedStatement.setString(3, email);
+        preparedStatement.setString(4, password);
+        preparedStatement.setString(5, role);
+        preparedStatement.setString(6, UserStatus.ACTIVE);
         preparedStatement.executeUpdate();
         System.out.println("Пользователь " + name + " " + surname + " успешно добавлен!");
     }

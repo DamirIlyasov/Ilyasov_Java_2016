@@ -1,4 +1,4 @@
-package com.ilyasov.database;
+package com.ilyasov.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +15,6 @@ public class NewsDAO {
     }
 
     public void changeNews() throws SQLException {
-
 
         preparedStatement = connection.prepareStatement("UPDATE news SET text = ? WHERE " +
                 "id = ?");

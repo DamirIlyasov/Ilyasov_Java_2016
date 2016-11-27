@@ -1,14 +1,13 @@
-package com.ilyasov;
+package com.ilyasov.DAO;
 
-import com.ilyasov.database.PostgreSQL;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Scanner;
 
-public abstract class DAO {
+public abstract class Dao {
     protected static Connection connection;
-    protected PreparedStatement preparedStatement;
+    PreparedStatement preparedStatement;
     protected Scanner scanner = new Scanner(System.in);
     static {
         connection = PostgreSQL.getConnection();

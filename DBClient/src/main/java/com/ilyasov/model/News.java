@@ -1,7 +1,6 @@
-package com.ilyasov.reports.classes;
+package com.ilyasov.model;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 public class News {
     private long id;
@@ -11,23 +10,6 @@ public class News {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public long getId() {
-
-        return id;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public long getCommunityId() {
-        return communityId;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
     }
 
     public void setText(String text) {
