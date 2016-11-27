@@ -1,4 +1,6 @@
-package com.ilyasov.DAO;
+package com.ilyasov.dao;
+
+import com.ilyasov.enums.ApplicationMessages;
 
 import java.sql.*;
 import java.util.Date;
@@ -27,6 +29,6 @@ public class RequestDAO extends Dao {
         preparedStatement.setString(6, serviceType);
         preparedStatement.setString(7, status);
         preparedStatement.executeUpdate();
-        System.out.println("Заявка успешно добавлена!");
+        System.out.println(ApplicationMessages.OPERATION_IS_COMPLETED);
     }
 }

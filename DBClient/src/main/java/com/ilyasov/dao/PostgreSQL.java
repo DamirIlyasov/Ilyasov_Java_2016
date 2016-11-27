@@ -1,4 +1,4 @@
-package com.ilyasov.DAO;
+package com.ilyasov.dao;
 
 import java.io.IOException;
 import java.io.InputStream;

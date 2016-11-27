@@ -1,4 +1,6 @@
-package com.ilyasov.DAO;
+package com.ilyasov.dao;
+
+import com.ilyasov.enums.ApplicationMessages;
 
 import java.sql.SQLException;
 
@@ -11,10 +13,7 @@ public class CommunityDAO extends Dao {
         connection = PostgreSQL.getConnection();
     }
 
-    public void chooseCommunity() {
-        System.out.println("Введите название сообщества, которое хотите изменить");
-        this.chosenCommunity = scanner.nextLine();
-    }
+
 
     public void renameCommunity() throws SQLException {
         preparedStatement = connection.prepareStatement(renameRequest);
@@ -23,7 +22,7 @@ public class CommunityDAO extends Dao {
         preparedStatement.setString(1, nameOfCommunity);
         preparedStatement.setString(2, chosenCommunity);
         preparedStatement.executeUpdate();
-        System.out.println("Навание сообщества успешно изменено!");
+        System.out.println(ApplicationMessages.OPERATION_IS_COMPLETED);
     }
 
     public void changeDescription() throws SQLException {
@@ -33,7 +32,7 @@ public class CommunityDAO extends Dao {
         preparedStatement.setString(1, description);
         preparedStatement.setString(2, chosenCommunity);
         preparedStatement.executeUpdate();
-        System.out.println("Описание сообщества успешно изменено!");
+        System.out.println(ApplicationMessages.OPERATION_IS_COMPLETED);
 
     }
 }

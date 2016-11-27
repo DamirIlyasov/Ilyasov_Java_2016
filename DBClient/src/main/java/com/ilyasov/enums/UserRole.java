@@ -1,4 +1,4 @@
-package com.ilyasov.ENUMS;
+package com.ilyasov.enums;
 
 public interface UserRole {
     String ADMIN = "ADMIN";

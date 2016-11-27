@@ -1,5 +1,9 @@
 package com.ilyasov.model;
 
+import com.ilyasov.dao.NewsDAO;
+import com.ilyasov.enums.ApplicationMessages;
+
+import java.sql.SQLException;
 import java.sql.Timestamp;
 
 public class News {
@@ -7,6 +11,8 @@ public class News {
     private String text;
     private long communityId;
     private Timestamp createdAt;
+
+
 
     public void setId(long id) {
         this.id = id;
@@ -16,7 +22,14 @@ public class News {
 
         this.text = text;
     }
-
+    public static void change(){
+        NewsDAO newsDAO = new NewsDAO();
+        try {
+            newsDAO.changeNews();
+        } catch (SQLException e) {
+            System.out.println(ApplicationMessages.OPERATION_IS_NOT_COMPLETED);
+        }
+    }
     public void setCommunityId(long communityId) {
         this.communityId = communityId;
     }

@@ -1,4 +1,6 @@
-package com.ilyasov.DAO;
+package com.ilyasov.dao;
+
+import com.ilyasov.enums.ApplicationMessages;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,7 +27,7 @@ public class NewsDAO {
         preparedStatement.setLong(2, Long.parseLong(newsId));
         preparedStatement.setString(1, newsText);
         preparedStatement.executeUpdate();
-        System.out.println("Новость успешно изменена!");
+        System.out.println(ApplicationMessages.OPERATION_IS_COMPLETED);
 
     }
 }

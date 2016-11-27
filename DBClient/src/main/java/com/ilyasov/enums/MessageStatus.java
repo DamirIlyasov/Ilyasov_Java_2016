@@ -1,4 +1,4 @@
-package com.ilyasov.ENUMS;
+package com.ilyasov.enums;
 
 public interface MessageStatus {
     String NEW = "NEW";

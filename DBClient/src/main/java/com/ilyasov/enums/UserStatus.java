@@ -1,4 +1,4 @@
-package com.ilyasov.ENUMS;
+package com.ilyasov.enums;
 
 public interface UserStatus {
     String ACTIVE = "ACTIVE";
