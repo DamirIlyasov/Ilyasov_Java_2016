@@ -30,12 +30,12 @@ public class MessageDAO extends DAO {
         Timestamp timestamp = new Timestamp(new Date().getTime());
 //        Date date = new Date();
 //        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        preparedStatement.setTimestamp(5,timestamp);
-        preparedStatement.setLong(1,id);
-        preparedStatement.setString(2,text);
-        preparedStatement.setLong(3,senderId);
-        preparedStatement.setLong(4,recipientId);
-        preparedStatement.setString(6,status);
+        preparedStatement.setTimestamp(5, timestamp);
+        preparedStatement.setLong(1, id);
+        preparedStatement.setString(2, text);
+        preparedStatement.setLong(3, senderId);
+        preparedStatement.setLong(4, recipientId);
+        preparedStatement.setString(6, status);
         preparedStatement.executeUpdate();
         System.out.println("Сообщение успешно добавлено!");
 

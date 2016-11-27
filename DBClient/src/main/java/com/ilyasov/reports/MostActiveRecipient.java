@@ -1,6 +1,7 @@
 package com.ilyasov.reports;
 
 import com.ilyasov.DAO;
+import com.ilyasov.reports.classes.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,24 +36,24 @@ public class MostActiveRecipient extends DAO {
         System.out.println("За какое время года вы хотите увидеть статистику? :Зима, Лето, Осень или Весна");
         String season = scanner.nextLine();
         if (season.equals("Зима")) {
-            preparedStatement.setInt(1,12);
-            preparedStatement.setInt(2,1);
-            preparedStatement.setInt(3,2);
+            preparedStatement.setInt(1, 12);
+            preparedStatement.setInt(2, 1);
+            preparedStatement.setInt(3, 2);
         } else {
             if (season.equals("Лето")) {
-                preparedStatement.setInt(1,6);
-                preparedStatement.setInt(2,7);
-                preparedStatement.setInt(3,8);
+                preparedStatement.setInt(1, 6);
+                preparedStatement.setInt(2, 7);
+                preparedStatement.setInt(3, 8);
             } else {
                 if (season.equals("Осень")) {
-                    preparedStatement.setInt(1,9);
-                    preparedStatement.setInt(2,10);
-                    preparedStatement.setInt(3,11);
+                    preparedStatement.setInt(1, 9);
+                    preparedStatement.setInt(2, 10);
+                    preparedStatement.setInt(3, 11);
                 } else {
                     if (season.equals("Весна")) {
-                        preparedStatement.setInt(1,3);
-                        preparedStatement.setInt(2,4);
-                        preparedStatement.setInt(3,5);
+                        preparedStatement.setInt(1, 3);
+                        preparedStatement.setInt(2, 4);
+                        preparedStatement.setInt(3, 5);
                     } else {
                         throw new SQLException();
                     }
@@ -60,6 +61,6 @@ public class MostActiveRecipient extends DAO {
             }
         }
         ResultSet resultSet = preparedStatement.executeQuery();
-       return User.buildListOfUsers(resultSet);
+        return User.buildListOfUsers(resultSet);
     }
 }

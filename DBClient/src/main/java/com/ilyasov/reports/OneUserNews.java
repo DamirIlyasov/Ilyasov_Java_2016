@@ -1,8 +1,8 @@
 package com.ilyasov.reports;
 
 import com.ilyasov.DAO;
+import com.ilyasov.reports.classes.News;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

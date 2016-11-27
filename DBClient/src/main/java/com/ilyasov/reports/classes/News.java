@@ -1,4 +1,4 @@
-package com.ilyasov.reports;
+package com.ilyasov.reports.classes;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -9,7 +9,7 @@ public class News {
     private long communityId;
     private Timestamp createdAt;
 
-    void setId(long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -30,16 +30,16 @@ public class News {
         return createdAt;
     }
 
-    void setText(String text) {
+    public void setText(String text) {
 
         this.text = text;
     }
 
-    void setCommunityId(long communityId) {
+    public void setCommunityId(long communityId) {
         this.communityId = communityId;
     }
 
-    void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 

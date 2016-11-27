@@ -1,4 +1,4 @@
-package com.ilyasov.reports;
+package com.ilyasov.reports.classes;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,15 +11,15 @@ public class User {
     private String surname;
 
 
-    public void setId(long id) {
+    void setId(long id) {
         this.id = id;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
-    public void setSurname(String surname) {
+    void setSurname(String surname) {
         this.surname = surname;
     }
 
@@ -32,12 +32,13 @@ public class User {
         users.add(user);
         return users;
     }
+
     @Override
     public String toString() {
         return "Информация о пользователе{" +
-                "id:" + id +"\n"+
+                "id:" + id + "\n" +
                 "Имя:" + name + '\n' +
-                "Фамилия:" + surname + '\n'+
+                "Фамилия:" + surname + '\n' +
                 '\n';
     }
 }

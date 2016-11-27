@@ -34,7 +34,7 @@ public class RequestDAO extends DAO {
         preparedStatement.setString(3, adress);
         preparedStatement.setFloat(4, latitude);
         preparedStatement.setFloat(5, longitude);
-        preparedStatement.setTimestamp(6,timestamp);
+        preparedStatement.setTimestamp(6, timestamp);
         preparedStatement.setString(7, serviceType);
         preparedStatement.setString(8, status);
         preparedStatement.executeUpdate();

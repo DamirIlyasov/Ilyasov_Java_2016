@@ -23,8 +23,8 @@ public class NewsDAO {
         String newsId = scanner.nextLine();
         System.out.println("Введите новый текст новости:");
         String newsText = scanner.nextLine();
-        preparedStatement.setLong(2,Long.parseLong(newsId));
-        preparedStatement.setString(1,newsText);
+        preparedStatement.setLong(2, Long.parseLong(newsId));
+        preparedStatement.setString(1, newsText);
         preparedStatement.executeUpdate();
         System.out.println("Новость успешно изменена!");
 
