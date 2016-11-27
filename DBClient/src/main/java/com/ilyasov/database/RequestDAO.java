@@ -21,9 +21,9 @@ public class RequestDAO extends DAO {
         long needyId = Long.parseLong(scanner.nextLine());
         System.out.println("Введите адрес:");
         String adress = scanner.nextLine();
-        System.out.println("Введите ширину");
+        System.out.println("Введите широту");
         Float latitude = Float.valueOf(scanner.nextLine());
-        System.out.println("Введите высоту");
+        System.out.println("Введите долготу");
         Float longitude = Float.valueOf(scanner.nextLine());
         Timestamp timestamp = new Timestamp(new Date().getTime());
         System.out.println("Введите тип услуги:");
