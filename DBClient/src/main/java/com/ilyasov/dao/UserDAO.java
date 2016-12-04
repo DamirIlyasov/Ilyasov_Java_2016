@@ -14,6 +14,7 @@ public class UserDAO extends Dao {
     private final String MOST_ACTIVE_VOLUNTEER_REQUEST = "WITH volunteers AS (SELECT u.id, u.name, u.surname, count(r_v) r_v_total FROM users u JOIN request r_v ON u.id = r_v.volunteer_id AND r_v.address LIKE ? GROUP BY u.id) SELECT volunteers.id, volunteers.name, volunteers.surname FROM volunteers WHERE r_v_total = (SELECT max(volunteers.r_v_total) FROM volunteers)";
     private final String ADD_USER_REQUEST = "INSERT INTO users (name, surname, email, password, role, status) VALUES (?,?,?,?,?,?)";
     private final String MOST_ACTIVE_RECIPIENT_REQUEST = "WITH user_msg AS (SELECT u.id,u.name,u.surname,count(m_r.id) msg_total FROM users u LEFT JOIN message m_r ON u.id = m_r.recipient_id AND(date_part('month', m_r.created_at) = ? OR date_part('month', m_r.created_at) = ? OR date_part('month', m_r.created_at) = ?) GROUP BY u.id) SELECT user_msg.id,user_msg.name,user_msg.surname FROM user_msg WHERE user_msg.msg_total = (SELECT max(user_msg.msg_total)FROM user_msg)";
+    private final String PERCENTAGE_OF_BANNED_USERS = "SELECT ((SELECT count(*)FROM users WHERE status = 'BANNED')*100/(SELECT count(*) FROM users )) percents";
     List<News> newsList = new ArrayList<News>();
 
     public List<News> getOneUsersNews(long id) throws SQLException {
@@ -104,5 +105,11 @@ public class UserDAO extends Dao {
         preparedStatement.setString(1, regEx);
         ResultSet resultSet = preparedStatement.executeQuery();
         return User.buildListOfUsers(resultSet);
+    }
+    public int getThePercentageOfBannedUsers() throws SQLException {
+        preparedStatement = connection.prepareStatement(PERCENTAGE_OF_BANNED_USERS);
+        ResultSet resultSet= preparedStatement.executeQuery();
+        resultSet.next();
+        return resultSet.getInt(1);
     }
 }

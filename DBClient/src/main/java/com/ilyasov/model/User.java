@@ -96,6 +96,14 @@ public class User {
       String regEx = scanner.nextLine();
       getTheMostActiveVolunteerByAdress(regEx);
   }
+  public static void getThePercentageOfBannedUsers(){
+      UserDAO userDAO = new UserDAO();
+      try {
+          System.out.println(userDAO.getThePercentageOfBannedUsers()+" %");
+      } catch (SQLException e) {
+          System.out.println(ApplicationMessages.OPERATION_IS_NOT_COMPLETED);
+      }
+  }
     @Override
     public String toString() {
         return "Информация о пользователе{" +

@@ -43,11 +43,15 @@ public class Main {
                     break;
                 }
                 case "7": {
-                   User.getTheMostActiveRecipient();
+                    User.getTheMostActiveRecipient();
                     break;
                 }
                 case "8": {
                     User.getTheMostActiveVolunteer();
+                    break;
+                }
+                case "9": {
+                    User.getThePercentageOfBannedUsers();
                     break;
                 }
                 case "0": {
