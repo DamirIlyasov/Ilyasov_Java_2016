@@ -31,8 +31,6 @@ public class CalculateServletTest {
         when(response.getWriter()).thenReturn(printWriter);
         when(request.getRequestURI()).thenReturn(INPUT);
         calculateService = mock(CalculateService.class);
-
-
     }
 
     @Test
@@ -41,7 +39,6 @@ public class CalculateServletTest {
         verify(response.getWriter()).print("Method post is not allowed here");
         verify(response).setStatus(405);
     }
-
 
     @Test
     public void doGetShouldTakeRequestURI() throws ServletException, IOException {

@@ -17,38 +17,46 @@ public class CalculateService implements Operator {
         matcher = pattern.matcher(string);
         if (matcher.matches()) {
             parse();
-            if (operator == '/' & secondNumber == 0){
-                return "Invalid input";
-            }
-            Calculator calculator = new Calculator();
-            double result = 0;
-            switch (operator) {
-                case PLUS: {
-                    result = calculator.sum(firstNumber, secondNumber);
-                    break;
-                }
-                case MINUS: {
-                    result = calculator.subtraction(firstNumber, secondNumber);
-                    break;
-                }
-                case DIV: {
-                    result = calculator.division(firstNumber, secondNumber);
-                    break;
-                }
-                case MULT: {
-                    result = calculator.multiplication(firstNumber, secondNumber);
-                    break;
-                }
-            }
-            return String.valueOf(result);
+            return operate();
         } else {
             return "Invalid input";
         }
+
+
     }
 
     private void parse() {
         firstNumber = Double.valueOf(matcher.group("firstNumber"));
         operator = matcher.group("operator").charAt(0);
         secondNumber = Double.valueOf(matcher.group("secondNumber"));
+    }
+
+    private String operate() {
+        Calculator calculator = new Calculator();
+        String result = String.valueOf(0);
+        switch (operator) {
+            case PLUS: {
+                result = String.valueOf(calculator.sum(firstNumber, secondNumber));
+                break;
+            }
+            case MINUS: {
+                result = String.valueOf(calculator.subtraction(firstNumber, secondNumber));
+                break;
+            }
+            case DIV: {
+                if (secondNumber == 0) {
+                    result = "Invalid input";
+                    break;
+                } else {
+                    result = String.valueOf(calculator.division(firstNumber, secondNumber));
+                    break;
+                }
+            }
+            case MULT: {
+                result = String.valueOf(calculator.multiplication(firstNumber, secondNumber));
+                break;
+            }
+        }
+        return String.valueOf(result);
     }
 }

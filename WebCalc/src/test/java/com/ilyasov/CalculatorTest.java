@@ -29,4 +29,8 @@ public class CalculatorTest {
     public void divisionShouldReturnCorrectValue(){
         Assert.assertEquals(V_1/V_2,calculator.division(V_1,V_2),DELTA);
     }
+    @Test
+    public void divisionShouldReturnInfinityWhenTakesZero(){
+        Assert.assertEquals(Float.isInfinite((float) calculator.division(V_1,0)), true);
+    }
 }
