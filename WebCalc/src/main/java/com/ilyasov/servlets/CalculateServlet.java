@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 public class CalculateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setStatus(405);
-        response.getWriter().print("Method post is not allowed here");
+        response.getWriter().print("Method POST is not allowed here");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

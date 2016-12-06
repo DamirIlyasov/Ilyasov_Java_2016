@@ -1,5 +1,6 @@
 package com.ilyasov.servlets;
 
+import com.ilyasov.Calculator;
 import com.ilyasov.service.CalculateService;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,12 +16,14 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class CalculateServletTest {
-    static HttpServletRequest request;
-    static HttpServletResponse response;
-    static PrintWriter printWriter;
-    static CalculateServlet calculateServlet;
-    static final String INPUT = "/calculate/6.0+2.0";
-    static CalculateService calculateService;
+    private static HttpServletRequest request;
+    private static HttpServletResponse response;
+    private static PrintWriter printWriter;
+    private static CalculateServlet calculateServlet;
+    private static final String INPUT = "/calculate/6.0+2.0";
+    private static CalculateService calculateService;
+    private static Calculator calculator;
+    private final String ERROR_MSG = "Method POST is not allowed here";
 
     @BeforeClass
     public static void setUp() throws IOException {
@@ -31,12 +34,14 @@ public class CalculateServletTest {
         when(response.getWriter()).thenReturn(printWriter);
         when(request.getRequestURI()).thenReturn(INPUT);
         calculateService = mock(CalculateService.class);
+        calculator = mock(Calculator.class);
+        when(calculateService.calculate(INPUT)).thenReturn("8.0");
     }
 
     @Test
-    public void doPostShouldPrintMsgAndSetStatus() throws IOException, ServletException {
+    public void doPostShouldPrintErrorMsgAndSetStatus() throws IOException, ServletException {
         calculateServlet.doPost(request, response);
-        verify(response.getWriter()).print("Method post is not allowed here");
+        verify(response.getWriter()).print(ERROR_MSG);
         verify(response).setStatus(405);
     }
 

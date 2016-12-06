@@ -29,8 +29,12 @@ public class CalculatorTest {
     public void divisionShouldReturnCorrectValue(){
         Assert.assertEquals(V_1/V_2,calculator.division(V_1,V_2),DELTA);
     }
+    @Test(expected = ArithmeticException.class)
+    public void divisionShouldReturnErrorMsgWhenTakesZero(){
+        calculator.division(5.0,0.0);
+    }
     @Test
-    public void divisionShouldReturnInfinityWhenTakesZero(){
-        Assert.assertEquals(Float.isInfinite((float) calculator.division(V_1,0)), true);
+    public void calculatorShouldReturnZeroWhenTakesInvalidOperator(){
+        Assert.assertEquals(0.0,calculator.operate(1,'[',1),DELTA);
     }
 }
