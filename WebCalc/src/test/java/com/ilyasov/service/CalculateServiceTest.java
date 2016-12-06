@@ -27,22 +27,22 @@ public class CalculateServiceTest {
 
     @Test
     public void calculateServiceShouldReturnCorrectSum(){
-        when(calculator.sum(6.0,1.0)).thenReturn(7.0);
+        when(calculator.operate(6.0,'+',1.0)).thenReturn(7.0);
         Assert.assertEquals("7.0",calculateService.calculate(INPUT_FOR_SUM));
     }
     @Test
     public void calculateServiceShouldReturnCorrectSubtraction(){
-        when(calculator.subtraction(6.0,1.0)).thenReturn(5.0);
+        when(calculator.operate(6.0,'-',1.0)).thenReturn(5.0);
         Assert.assertEquals("5.0",calculateService.calculate(INPUT_FOR_SUBTRACTION));
     }
     @Test
     public void calculateServiceShouldReturnCorrectMultiplication(){
-        when(calculator.multiplication(6.0,2.0)).thenReturn(12.0);
+        when(calculator.operate(6.0,'*',2.0)).thenReturn(12.0);
         Assert.assertEquals("12.0",calculateService.calculate(INPUT_FOR_MULTIPLICATION));
     }
     @Test
     public void calculateServiceShouldReturnCorrectDivision(){
-        when(calculator.division(6.0,2.0)).thenReturn(3.0);
+        when(calculator.operate(6.0,'/',2.0)).thenReturn(3.0);
         Assert.assertEquals("3.0",calculateService.calculate(INPUT_FOR_DIVISION));
     }
     @Test

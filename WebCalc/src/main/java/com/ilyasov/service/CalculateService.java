@@ -8,10 +8,11 @@ import java.util.regex.Pattern;
 public class CalculateService  {
     private final Pattern pattern = Pattern.compile("/calculate/(?<firstNumber>\\d+(\\.\\d)*)(?<operator>(\\+|-|/|\\*))(?<secondNumber>\\d+(\\.\\d)*)");
     private Matcher matcher;
-    private Double firstNumber;
-    private Double secondNumber;
+    private double firstNumber;
+    private double secondNumber;
     private char operator;
     private Calculator calculator = new Calculator();
+    private final String INVALID_INPUT = "Invalid input";
 
     public String calculate(String string) {
         matcher = pattern.matcher(string);
@@ -23,7 +24,7 @@ public class CalculateService  {
                 return e.getMessage();
             }
         } else {
-            return "Invalid input";
+            return INVALID_INPUT;
         }
     }
 

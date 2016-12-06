@@ -5,4 +5,5 @@ public interface Operator {
     char MINUS = '-';
     char MULT = '*';
     char DIV = '/';
+    double operate(double firstNumber, char operator, double secondNumber);
 }
