@@ -20,7 +20,7 @@ abstract class Chat {
     Thread thread;
 
     void createFrame() {
-        frame = new Frame("com.ilyasov.Chat");
+        frame = new Frame("Chat");
         frame.setLayout(new FlowLayout());
         frame.setBackground(Color.white);
         button = new Button("Send");
