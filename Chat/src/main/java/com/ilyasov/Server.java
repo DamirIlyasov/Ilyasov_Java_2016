@@ -9,12 +9,14 @@ import java.net.ServerSocket;
 public class Server extends Chat {
 
     private ServerSocket serverSocket;
-
+    private final String USER_CONNECTED = "User connected.You can communicate now!\n";
+    private final String USER_DISCONNECTED = "User disconnected.\n";
+    private final String NO_USERS_IN_THIS_CHAT = "No active users in this chat \n";
     private void startWork() {
         try {
             createFrame();
             serverSocket = new ServerSocket(8080);
-            textArea.append("No active users in this chat \n");
+            textArea.append(NO_USERS_IN_THIS_CHAT);
             initializeUser();
         } catch (IOException e) {
             e.printStackTrace();
@@ -28,7 +30,7 @@ public class Server extends Chat {
                         if (text != null) {
                             textArea.append(text + "\n");
                         } else {
-                            textArea.append("User disconnected\n");
+                            textArea.append(USER_DISCONNECTED);
                             initializeUser();
                         }
                     } catch (IOException e) {
@@ -43,7 +45,7 @@ public class Server extends Chat {
     private void initializeUser() {
         try {
             socket = serverSocket.accept();
-            textArea.append("User connected.You can communicate now!\n");
+            textArea.append(USER_CONNECTED);
             out = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             in = new PrintWriter(socket.getOutputStream(), true);
         } catch (IOException e) {

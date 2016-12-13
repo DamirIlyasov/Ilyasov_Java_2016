@@ -8,7 +8,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class Client extends Chat {
-
+    private final String CONNECTED = "Connected.\n";
     public void startWork() {
         createFrame();
         initializeServer();
@@ -25,7 +25,7 @@ public class Client extends Chat {
             }
         });
         thread.start();
-        textArea.append("Connected\n");
+        textArea.append(CONNECTED);
     }
     public void initializeServer(){
         try {
