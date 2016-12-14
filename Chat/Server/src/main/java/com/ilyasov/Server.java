@@ -12,6 +12,7 @@ public class Server extends Chat {
     private final String USER_CONNECTED = "User connected.You can communicate now!\n";
     private final String USER_DISCONNECTED = "User disconnected.\n";
     private final String NO_USERS_IN_THIS_CHAT = "No active users in this chat \n";
+
     private void startWork() {
         try {
             createFrame();

@@ -9,6 +9,7 @@ import java.net.Socket;
 
 public class Client extends Chat {
     private final String CONNECTED = "Connected.\n";
+
     public void startWork() {
         createFrame();
         initializeServer();
@@ -27,7 +28,8 @@ public class Client extends Chat {
         thread.start();
         textArea.append(CONNECTED);
     }
-    public void initializeServer(){
+
+    public void initializeServer() {
         try {
             socket = new Socket(InetAddress.getLocalHost(), 8080);
             out = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -36,6 +38,7 @@ public class Client extends Chat {
             e.printStackTrace();
         }
     }
+
     public static void main(String[] args) {
         Client client = new Client();
         client.startWork();

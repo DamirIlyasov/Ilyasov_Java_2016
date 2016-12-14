@@ -9,20 +9,30 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-abstract class Chat {
-    Socket socket;
-    PrintWriter in;
-    BufferedReader out;
-    Frame frame;
-    Button button;
-    TextField textField;
-    TextArea textArea;
-    Thread thread;
+public abstract class Chat {
+    protected Socket socket;
+    protected PrintWriter in;
+    protected BufferedReader out;
+    private Frame frame;
+    private Button button;
+    private TextField textField;
+    protected TextArea textArea;
+    protected Thread thread;
 
-    void createFrame() {
+    protected void createFrame() {
         frame = new Frame("Chat");
         frame.setLayout(new FlowLayout());
         frame.setBackground(Color.white);
+        createButton();
+        textField = new TextField(20);
+        textArea = new TextArea(15, 25);
+        textArea.setBackground(Color.white);
+        addToFrame();
+        frame.setVisible(true);
+        frame.validate();
+    }
+
+    void createButton() {
         button = new Button("Send");
         button.setBackground(Color.white);
         button.addActionListener(new ActionListener() {
@@ -33,9 +43,9 @@ abstract class Chat {
                 textField.setText("");
             }
         });
-        textField = new TextField(20);
-        textArea = new TextArea(15, 25);
-        textArea.setBackground(Color.white);
+    }
+
+    void addToFrame() {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent windowEvent) {
@@ -47,7 +57,5 @@ abstract class Chat {
         frame.add(textArea);
         frame.setSize(200, 200);
         frame.setLocation(300, 300);
-        frame.setVisible(true);
-        frame.validate();
     }
 }
