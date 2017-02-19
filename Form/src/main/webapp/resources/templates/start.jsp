@@ -8,7 +8,8 @@
     <input type="text" placeholder="Фамилия" name="lastName">
     <input type="text" placeholder="Отчество" name="middleName">
     <input type="text" placeholder="Возраст" name="age">
-    Sex(male,female)<input type="text" name="sex">
+    <input type="radio" name="sex" value="male" checked>Мужской
+    <input type="radio" name="sex" value="female">Женский
     <button type="submit">Отправить</button>
 </form>
 
