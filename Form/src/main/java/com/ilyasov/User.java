@@ -4,7 +4,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String middleName;
-    private String age;
+    private String date;
     private String sex;
 
     public void setSex(String sex) {
@@ -15,8 +15,8 @@ public class User {
         return sex;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public void setLastName(String lastName) {
@@ -43,7 +43,7 @@ public class User {
         return lastName;
     }
 
-    public String getAge() {
-        return age;
+    public String getDate() {
+        return date;
     }
 }

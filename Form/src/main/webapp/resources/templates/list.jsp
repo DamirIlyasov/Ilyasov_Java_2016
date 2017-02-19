@@ -12,15 +12,27 @@
     <title>Title</title>
     ${message}
 
-    <c:forEach items="${list}" var="item">
-        <c:if test="${item.getFirstName() != null && item.getLastName() != null && item.getMiddleName() != null}">
-            <p>${item.getFirstName()}
-            ${item.getLastName()}
-            ${item.getMiddleName()}</p>
-            </br>
-        </c:if>
+    <table border="1" width="100%" cellpadding="5">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Middle Name</th>
+            <th>Age</th>
+            <th>Sex</th>
+        </tr>
+        <c:forEach items="${list}" var="item">
+            <c:if test="${item.getFirstName() != null && item.getLastName() != null && item.getMiddleName() != null}">
+                <tr>
+                    <th>${item.getFirstName()}</th>
+                    <th>${item.getLastName()}</th>
+                    <th>${item.getMiddleName()}</th>
+                    <th>${item.getAge()}</th>
+                    <th>${item.getSex()}</th>
+                </tr>
+            </c:if>
 
-    </c:forEach>
+        </c:forEach>
+    </table>
 </head>
 <body>
 

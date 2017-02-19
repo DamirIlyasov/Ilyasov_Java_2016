@@ -4,12 +4,15 @@
 
 <form action="/list/1" method="post">
 
-    <input type="text" placeholder="Имя" name="firstName">
-    <input type="text" placeholder="Фамилия" name="lastName">
-    <input type="text" placeholder="Отчество" name="middleName">
-    <input type="text" placeholder="Возраст" name="age">
-    <input type="radio" name="sex" value="male" checked>Мужской
-    <input type="radio" name="sex" value="female">Женский
+    <input type="text" placeholder="First Name" name="firstName">
+    <input type="text" placeholder="Last Name" name="lastName">
+    <input type="text" placeholder="Middle Name" name="middleName">
+    <input type="date" name="date">
+    <select name="sex">
+        <option value="">Выберите пол</option>
+        <option value="male">Мужской</option>
+        <option value="female">Женский</option>
+    </select>
     <button type="submit">Отправить</button>
 </form>
 
