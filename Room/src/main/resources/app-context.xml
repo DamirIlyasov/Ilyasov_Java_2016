@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="colorFactory" class="interfaces.impl.color.RandomColor"/>
+
+    <bean id = "bigBed" class="interfaces.impl.bed.BigBed">
+        <property name="size" value="100"/>
+    </bean>
+    <!--<bean id = "smallBed" class="interfaces.impl.bed.SmallBed">-->
+        <!--<property name="size" value="50"/>-->
+    <!--</bean>-->
+
+    <bean id = "bigChair" class="interfaces.impl.chair.BigChair">
+        <property name="size" value="100"/>
+    </bean>
+    <!--<bean id="smallChair" class="interfaces.impl.chair.SmallChair">-->
+        <!--<property name="size" value="50"/>-->
+    <!--</bean>-->
+
+    <bean id="bigTable" class="interfaces.impl.table.BigTable">
+        <property name="size" value="100"/>
+    </bean>
+    <!--<bean id="smallTable" class="interfaces.impl.table.SmallTable">-->
+        <!--<property name="size" value="50"/>-->
+    <!--</bean>-->
+
+    <bean id="bedRoom" class="interfaces.impl.room.BedRoom" scope="prototype">
+        <constructor-arg ref="bigBed"/>
+        <constructor-arg ref="bigChair"/>
+        <constructor-arg ref="bigTable"/>
+        <constructor-arg ref="colorFactory"/>
+    </bean>
+</beans>
